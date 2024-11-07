@@ -12,37 +12,51 @@ const ContactList = () => {
   const filteredContacts = contacts.filter((contact) => {
     return contact.name.toLowerCase().includes(filter.toLowerCase().trim());
   });
-
   return (
-    <div>
-      <ul className={css.ul}>
-        {filteredContacts.length > 0 &&
-          filteredContacts.map((contact) => (
-            <Contact
-              key={contact.id}
-              id={contact.id}
-              userName={contact.name}
-              userPhone={contact.number}
-              userId={contact.id}
-              onDeleteProfile={onDeleteProfile}
-            />
-          ))}
-      </ul>
-      {/* <ul className={css.ul}>
-        {contacts.map((contact) => {
-          return (
-            <Contact
-              key={contact.id}
-              id={contact.id}
-              name={contact.name}
-              number={contact.number}
-              onDeleteProfile={onDeleteProfile}
-            />
-          );
-        })}
-      </ul> */}
-    </div>
+    <ul>
+      {filteredContacts.map((item) => (
+        <Contact
+          key={contacts.id}
+          id={contacts.id}
+          userName={contacts.name}
+          userPhone={contacts.number}
+          userId={contacts.id}
+        />
+      ))}
+    </ul>
   );
 };
+
+//   return (
+//     <div>
+//       <ul className={css.ul}>
+//         {filteredContacts.length > 0 &&
+//           filteredContacts.map((contact) => (
+//             <Contact
+//               key={contact.id}
+//               id={contact.id}
+//               userName={contact.name}
+//               userPhone={contact.number}
+//               userId={contact.id}
+//               onDeleteProfile={onDeleteProfile}
+//             />
+//           ))}
+//       </ul>
+//       {/* <ul className={css.ul}>
+//         {contacts.map((contact) => {
+//           return (
+//             <Contact
+//               key={contact.id}
+//               id={contact.id}
+//               name={contact.name}
+//               number={contact.number}
+//               onDeleteProfile={onDeleteProfile}
+//             />
+//           );
+//         })}
+//       </ul> */}
+//     </div>
+//   );
+// };
 
 export default ContactList;
