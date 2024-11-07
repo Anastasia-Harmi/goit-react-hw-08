@@ -11,6 +11,7 @@ const SearchBox = ({ filter, setFilter }) => {
         value={filter}
         onChange={(event) => {
           const action = setFilter(event.target.value);
+          dispatch(action);
         }}
       />
     </div>
