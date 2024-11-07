@@ -1,4 +1,5 @@
 import React from "react";
+import { setFilter } from "../../redux/filter/filtersSlice";
 import css from "./SearchBox.module.css";
 const SearchBox = ({ filter, setFilter }) => {
   return (
@@ -8,7 +9,9 @@ const SearchBox = ({ filter, setFilter }) => {
         type="text"
         name="name"
         value={filter}
-        onChange={(event) => setFilter(event.target.value)}
+        onChange={(event) => {
+          const action = setFilter(event.target.value);
+        }}
       />
     </div>
   );
