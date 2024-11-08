@@ -16,7 +16,7 @@ import storage from "redux-persist/lib/storage";
 const contactsConfig = {
   key: "contactsKey",
   storage,
-  whitelist: ["contacts"],
+  whitelist: ["items"],
   // blacklist: ["showProfilesList"]
 };
 
