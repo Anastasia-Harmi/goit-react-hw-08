@@ -3,8 +3,8 @@ import * as Yup from "yup";
 import { ErrorMessage } from "formik";
 import css from "./ContactForm.module.css";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contacts/contactsSlice";
 import { nanoid } from "nanoid";
+import { postContact } from "../../redux/contactsOps";
 
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string()
@@ -24,7 +24,7 @@ const ContactForm = () => {
   const dispatch = useDispatch();
   const handleSubmit = (values, actions) => {
     const id = nanoid();
-    dispatch(addContact({ ...values, id }));
+    dispatch(postContact({ ...values, id }));
     actions.resetForm();
   };
   return (
