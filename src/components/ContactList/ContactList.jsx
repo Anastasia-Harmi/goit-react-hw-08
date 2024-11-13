@@ -15,12 +15,10 @@ const ContactList = () => {
   useEffect(() => {
     dispatch(fetchContacts());
   }, []);
-  const filteredContacts = contacts.filter((contact) => {
-    return contact.name.toLowerCase().includes(filter.toLowerCase().trim());
-  });
+
   return (
     <ul>
-      {filteredContacts.map((item) => (
+      {contacts.map((item) => (
         <Contact
           key={item.id}
           id={item.id}
