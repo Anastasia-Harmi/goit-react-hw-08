@@ -4,6 +4,7 @@ import { RegisterUserSchema } from "../../utils/schemas";
 import { register } from "../../redux/auth/operations";
 import css from "./RegistrationPage.module.css";
 import { useDispatch } from "react-redux";
+//в initialvalue пишемо поля, які треба зібрати з форми
 const INITIAL_VALUES = {
   name: "",
   email: "",
