@@ -14,6 +14,7 @@ const INITIAL_VALUES = {
 const RegistrationPage = () => {
   const dispatch = useDispatch();
 
+  // у values бібл formik збирає значення з полів сама у цей {}values. якщо треба взяти значення з конкретного поля, то values.name  . name - це значення name input
   const handleSubmit = (values, actions) => {
     dispatch(register(values));
     actions.resetForm();
