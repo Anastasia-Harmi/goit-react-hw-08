@@ -1,0 +1,18 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid rgb(215, 173, 173);
+  padding: 14px 24px;
+}
+
+.field {
+  margin-bottom: 14px;
+}
+.btn {
+  background-color: rgb(211, 176, 176);
+  color: rgb(39, 38, 38);
+}
+.errorMessage {
+  color: rgb(237, 75, 75);
+}
