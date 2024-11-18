@@ -1,11 +1,12 @@
 import { Form, Formik, Field } from "formik";
 import * as Yup from "yup";
 import { ErrorMessage } from "formik";
-import css from "./ContactForm.module.css";
+
 import { useDispatch } from "react-redux";
 import { nanoid } from "nanoid";
-import { postContact } from "../../redux/contactsOps";
-
+import { postContact } from "../../redux/contacts/operations";
+import { Button, Input } from "antd";
+import css from "./ContactForm.module.css";
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, "Too Short!")
@@ -37,14 +38,12 @@ const ContactForm = () => {
       >
         <Form className={css.form}>
           <span className={css.span}>Name</span>
-          <Field className={css.field} type="text" name="name" />
+          <Field type="text" name="name" />
           <ErrorMessage className={css.error} name="name" component="span" />
           <span>Number</span>
-          <Field className={css.field} type="text" name="number" />
+          <Field type="text" name="number" />
           <ErrorMessage className={css.error} name="number" component="span" />
-          <button className={css.btn} type="submit">
-            Add contact
-          </button>
+          <button type="submit">Add contact</button>
         </Form>
       </Formik>
     </div>

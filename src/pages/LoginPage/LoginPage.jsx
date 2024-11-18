@@ -5,6 +5,9 @@ import { logIn } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
 import { LoginUserSchema } from "../../utils/schemas";
 import css from "./LoginPage.module.css";
+
+import { useNavigate } from "react-router-dom";
+import routes from "../../routing/routes";
 //в initialvalue пишемо поля, які треба зібрати з форми
 const INITIAL_VALUES = {
   email: "",
@@ -33,7 +36,6 @@ const LoginPage = () => {
             <Field
               type="text"
               name="email"
-              className={css.input}
               placeholder="example.email@example.com"
             />
             <ErrorMessage
@@ -47,7 +49,6 @@ const LoginPage = () => {
             <Field
               type="password"
               name="password"
-              className={css.input}
               placeholder="Enter your password"
             />
             <ErrorMessage
