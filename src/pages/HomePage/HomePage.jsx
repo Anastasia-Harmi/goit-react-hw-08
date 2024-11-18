@@ -4,6 +4,7 @@ import { fetchContacts, postContact } from "../../redux/contacts/operations";
 import { selectFilteredContacts } from "../../redux/contacts/selectors";
 import Contact from "../../components/Contact/Contact";
 import ContactForm from "../../components/ContactForm/ContactForm";
+import SearchBox from "../../components/SearchBox/SearchBox";
 import css from "./HomePage.module.css";
 
 const HomePage = () => {
@@ -19,6 +20,9 @@ const HomePage = () => {
     <main>
       <section>
         <ContactForm />
+      </section>
+      <section>
+        <SearchBox />
       </section>
       <section className={css.grid}>
         {contactList.map((contact) => (
