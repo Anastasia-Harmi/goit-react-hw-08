@@ -12,7 +12,11 @@ const authSlice = createSlice({
     isLoggedIn: false,
     isRefreshing: true,
   },
-  reducers: {},
+  reducers: {
+    clearContacts: (state) => {
+      state.items = [];
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(register.fulfilled, (state, action) => {

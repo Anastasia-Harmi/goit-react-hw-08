@@ -12,7 +12,9 @@ const AppBar = () => {
   const userData = useSelector(selectUserData);
   const dispatch = useDispatch();
 
-  const handleLogOut = () => dispatch(logOut());
+  const handleLogOut = () => dispatch(clearContacts());
+  dispatch(logOut());
+
   return (
     <header className={css.header}>
       <Navigation />

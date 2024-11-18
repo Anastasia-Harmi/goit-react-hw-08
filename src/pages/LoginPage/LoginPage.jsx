@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { LoginUserSchema } from "../../utils/schemas";
 import css from "./LoginPage.module.css";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useNavigation } from "react-router-dom";
 import routes from "../../routing/routes";
 //в initialvalue пишемо поля, які треба зібрати з форми
 const INITIAL_VALUES = {
@@ -16,10 +16,20 @@ const INITIAL_VALUES = {
 
 const LoginPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // у values бібл formik збирає значення з полів сама у цей {}values. якщо треба взяти значення з конкретного поля, то values.name  . name - це значення name input
   const handleSubmit = (values, actions) => {
-    dispatch(logIn(values));
+    dispatch(logIn(values))
+      .then(() => {
+        // Якщо логін успішний, перенаправляємо на головну сторінку
+        navigate(routes.home); // Перехід на домашню сторінку
+      })
+      .catch((error) => {
+        // Тут можна обробити помилки, якщо вони є
+        console.error("Login failed", error);
+      });
+
     actions.resetForm();
   };
 
