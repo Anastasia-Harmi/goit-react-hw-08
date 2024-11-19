@@ -14,7 +14,11 @@ const INITIAL_STATE = {
 export const contactsSlice = createSlice({
   name: "contacts",
   initialState: INITIAL_STATE,
-  reducers: {},
+  reducers: {
+    clearContacts(state) {
+      state.items = [];
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchContacts.pending, (state, action) => {

@@ -7,13 +7,17 @@ import { NavLink } from "react-router-dom";
 import routes from "../../routing/routes";
 import css from "./AppBar.module.css";
 
+import { clearContacts } from "../../redux/contacts/operations";
+
 const AppBar = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const userData = useSelector(selectUserData);
   const dispatch = useDispatch();
 
-  const handleLogOut = () => dispatch(clearContacts());
-  dispatch(logOut());
+  const handleLogOut = () => {
+    dispatch(logOut());
+    dispatch(clearContacts());
+  };
 
   return (
     <header className={css.header}>
